@@ -1,0 +1,45 @@
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE "application/atom+xml" "application/javascript" "application/json" "application/ld+json" "application/manifest+json" "application/rdf+xml" "application/rss+xml" "application/schema+json" "application/vnd.geo+json" "application/vnd.ms-fontobject" "application/x-font-ttf" "application/x-javascript" "application/x-web-app-manifest+json" "application/xhtml+xml" "application/xml" "font/eot" "font/opentype" "image/bmp" "image/svg+xml" "image/vnd.microsoft.icon" "image/x-icon" "text/cache-manifest" "text/css" "text/html" "text/javascript" "text/plain" "text/vcard" "text/vnd.rim.location.xloc" "text/vtt" "text/x-component" "text/x-cross-domain-policy" "text/xml"
+
+# SECTION BEGIN GIT PROTECTION
+RedirectMatch 404 /\.git
+# SECTION END GIT PROTECTION
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+RewriteRule ^harrera /index.php?lang=eus [L]
+RewriteRule ^accueil /index.php?lang=fr [L]
+
+RewriteRule ^merkatua /marche.php?lang=eus [L]
+RewriteRule ^le-marché /marche.php?lang=fr [L]
+
+RewriteRule ^ekoizpenak /eproduits.php?lang=eus [L]
+RewriteRule ^Saskiak /eproduits.php?lang=eus&catid=1 [L]
+RewriteRule ^Fruituak-eta-Barazkiak /eproduits.php?lang=eus&catid=2 [L]
+RewriteRule ^Haragiak-eta-Haragi-Sendatuak /eproduits.php?lang=eus&catid=3 [L]
+RewriteRule ^Esnekiak /eproduits.php?lang=eus&catid=4 [L]
+RewriteRule ^Salteatutako-Janariak /eproduits.php?lang=eus&catid=5 [L]
+RewriteRule ^Arroltze-Ogi-eta-Goxokiak /eproduits.php?lang=eus&catid=6 [L]
+RewriteRule ^Kontserbak /eproduits.php?lang=eus&catid=7 [L]
+RewriteRule ^Likidoak /eproduits.php?lang=eus&catid=8 [L]
+RewriteRule ^Ongizatea /eproduits.php?lang=eus&catid=9 [L]
+RewriteRule ^Beste-Nonbait /eproduits.php?lang=eus&catid=10 [L]
+
+RewriteRule ^produits /eproduits.php?lang=fr [L]
+RewriteRule ^Paniers /eproduits.php?lang=fr&catid=1 [L]
+RewriteRule ^Fruits-et-Légumes /eproduits.php?lang=fr&catid=2 [L]
+RewriteRule ^Viandes-et-Salaisons /eproduits.php?lang=fr&catid=3 [L]
+RewriteRule ^Laitages /eproduits.php?lang=fr&catid=4 [L]
+RewriteRule ^Epicerie-Salée /eproduits.php?lang=fr&catid=5 [L]
+RewriteRule ^Oeufs-Pains-et-Douceurs /eproduits.php?lang=fr&catid=6 [L]
+RewriteRule ^Conserves /eproduits.php?lang=fr&catid=7 [L]
+RewriteRule ^Liquides /eproduits.php?lang=fr&catid=8 [L]
+RewriteRule ^Bien-Etre /eproduits.php?lang=fr&catid=9 [L]
+RewriteRule ^Ailleurs /eproduits.php?lang=fr&catid=10 [L]
+
+RewriteRule ^bloga /blog.php?lang=eus [L]
+RewriteRule ^le-blog /blog.php?lang=fr [L]
+
+RewriteRule ^kontaktua /econtact.php?lang=eus [L]
+RewriteRule ^contact /econtact.php?lang=fr [L]

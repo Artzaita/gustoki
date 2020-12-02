@@ -1,0 +1,88 @@
+<div id="delivery">
+<h1>Gestion de la Livraison</h1>
+
+
+
+
+	<section>
+	<h2>Créer un nouveau point de livraison</h2>
+
+	<form id="new" method="POST" action="delivery.php">
+		<fieldset>
+			<table>
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="text" name="Name" placeholder="Nom de la livraison">
+						</td>
+						<td>
+							<input type="text" name="Izenburua" placeholder="Banatzen izenburua">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea name="Description" rows="15"></textarea>
+						</td>
+						<td>
+							<textarea name="Deskribapen" rows="15"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>Type:</td>
+						<td>
+							<select name="Type">
+								<option value="Retrait">Retrait</option>
+								<option value="Livraison">Livraison</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="submit">Créer le point</button>
+		</fieldset>
+	</form>
+
+	</section>
+
+	<section>
+	<h2>Points de Livraison</h2>
+
+		<table id="list">
+			<thead>
+				<tr>
+					<th>Nom de la Livraison</th>
+					<th>Banatzen Izenburua</th>
+					<th>Description</th>
+					<th>Deskribapen</th>
+					<th>Type</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($deliveries as $delivery): ?>
+				<tr>
+					<td><?= $delivery['Delivery_Name'] ?></td>
+					<td><?= $delivery['Delivery_Izenburua'] ?></td>
+					<td><?= $delivery['Delivery_Description'] ?></td>
+					<td><?= $delivery['Delivery_Deskribapen'] ?></td>
+					<td><?= $delivery['Delivery_Type'] ?></td>
+					<td>
+						<form method="POST" action="modify.php?type=delivery&id=<?= $delivery['Delivery_Id']?>">
+							<input type="hidden" name="id_Delivery" value="<?= $delivery['Delivery_Id']?>">
+							<button type="submit" name="modify">Modifier</button>
+							<button type="submit" name="delete">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+
+	
+
+
+
+	</section>
+
+</div>

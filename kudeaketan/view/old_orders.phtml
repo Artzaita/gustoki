@@ -1,0 +1,70 @@
+<div id="orders">
+<h1>Liste des commandes</h1>
+
+
+<h2>Semaine en cours</h2>
+
+<button><a href="export/listing_S<?= $actualWeek ?>.csv">Télécharger le fichier</a></button>
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>numéro de commande</th>
+			<th>numéro client</th>
+			<th>contenu de la commande</th>
+			<th>montant</th>
+			<th>date de la commande</th>
+			<th>point de livraison</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+<?php foreach ($orders as $order): ?>
+		<tr>
+	<?php if ($order['Order_Week'] == $actualWeek): ?>
+			<td><?=$order['Order_Number'] ?></td>
+			<td><?=$order['Order_Cust_Number'] ?></td>
+			<td><?=$order['Order_Contents'] ?></td>
+			<td><?=$order['Order_Total'] ?></td>
+			<td><?=$order['Order_Date'] ?></td>
+			<td><?=$order['Delivery_Name'] ?></td>
+	<?php endif ?>
+<?php endforeach ?>
+		</tr>	
+	</tbody>
+
+</table>
+
+<h2>Archives</h2>
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>numéro de commande</th>
+			<th>numéro client</th>
+			<th>contenu de la commande</th>
+			<th>montant</th>
+			<th>date de la commande</th>
+			<th>point de livraison</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+<?php foreach ($orders as $order): ?>
+		<tr>
+			<td><?=$order['Order_Number'] ?></td>
+			<td><?=$order['Order_Cust_Number'] ?></td>
+			<td><?=$order['Order_Contents'] ?></td>
+			<td><?=$order['Order_Total'] ?></td>
+			<td><?=$order['Order_Date'] ?></td>
+			<td><?=$order['Delivery_Name'] ?></td>
+		</tr>	
+<?php endforeach ?>
+	</tbody>
+
+</table>
+
+
+</div>

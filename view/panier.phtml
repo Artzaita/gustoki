@@ -1,0 +1,105 @@
+<div id="listBasket">
+
+	<?php if ($langue == 'fr'): ?>
+
+	<h1>Panier</h1>
+
+	<table id="basket" style="">
+		<thead>
+			<tr>
+				<th>photo</th>
+				<th>produit</th>
+				<th>quantité</th>
+				<th>prix unitaire</th>
+				<th>total</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="4">Total</th>
+				<th id="grandTotal"></th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<?php foreach ($products as $product => $quantity): ?>
+				<?php $parameter = [$product]; ?>
+				<?php $request = "SELECT * FROM `gus_product` INNER JOIN gus_photo ON gus_product.Product_Photo_Id = gus_photo.Id WHERE Product_Id = ?"; ?>
+				<?php $query = fetchData($bdd,$request,$parameter); ?>
+					<tr>
+						<td><img src="img/produit/<?= $query['Photo_Name'] ?>"></td>
+						<td><?= $query['Title'] ?></td>
+						<td>
+							<form method="POST" action="basket.php">
+							<input type="hidden" name="Id_Product" value="<?= $product?>">
+							<input type="number" name="Quantity_Product" value="<?= $quantity ?>" min='0'>
+							<div>
+							<button type="submit" name="modify">Modifier</button>
+							<button type="submit" name="delete">Supprimer</button>
+							</div>
+							</form>
+						</td>
+					
+						<td><?= $query['Price'] ?></td>
+						<td class="sum"><?= $sum = $quantity * $query['Price']; ?></td>
+					</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<div>
+	<button type="button"><a href="marche.php">Retourner au marché</a></button>
+	<button type="button"><a href="connexion.php?lang=fr">Valider le panier</a></button>
+	</div>
+
+	<?php else: ?>
+
+	<h1>Saskia</h1>
+
+		<table id="basket">
+		<thead>
+			<tr>
+				<th>Irudi</th>
+				<th>Produktuak</th>
+				<th>Kantitate</th>
+				<th>Prezio unitarioa</th>
+				<th>Guztira</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="4">Guztira</th>
+				<th id="grandTotal"></th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<?php foreach ($products as $product => $quantity): ?>
+				<?php $parameter = [$product]; ?>
+				<?php $request = "SELECT * FROM `gus_product` INNER JOIN gus_photo ON gus_product.Product_Photo_Id = gus_photo.Id WHERE Product_Id = ?"; ?>
+				<?php $query = fetchData($bdd,$request,$parameter); ?>
+					<tr>
+						<td><img src="img/produit/<?= $query['Photo_Name'] ?>"></td>
+						<td><?= $query['Izenburua'] ?></td>
+						<td>
+							<form method="POST" action="basket.php">
+							<input type="hidden" name="Id_Product" value="<?= $product?>">
+							<input type="number" name="Quantity_Product" value="<?= $quantity ?>" min='0'>
+							<div>
+							<button type="submit" name="modify">Modifier</button>
+							<button type="submit" name="delete">Supprimer</button>
+							</div>
+							</form>
+						</td>
+						<td><?= $query['Price'] ?></td>
+						<td class="sum"><?= $sum = $quantity * $query['Price']; ?></td>
+					</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<div>
+	<button type="button"><a href="marche.php">Merkatura itzultzea</a></button>
+	<button type="button"><a href="connexion.php?lang=eus">Balidatu saskia</a></button>
+	</div>
+
+	<?php endif ?>
+</div>

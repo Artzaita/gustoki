@@ -1,0 +1,192 @@
+<div id="compte">
+
+<?php if ($langue == 'fr'): ?>
+
+<div id="content">
+
+<section id="creation">
+	<fieldset>
+	<h2>Mon compte</h2>
+	<form method="POST" action="compte.php?lang=fr">
+		<ul>
+			<li>
+				<label for="civility">Civilité:</label>
+				<select name="civility">
+					<option value="<?= $customer['Cust_Civility']?>"><?= $customer['Cust_Civility']?></option>
+					<option value="Madame">Madame</option>
+					<option value="Monsieur">Monsieur</option>
+				</select>
+			</li>
+			<li>
+				<label for="firstName">Prénom:</label>
+				<input type="text" name="firstName" value="<?= $customer['Cust_FirstName']?>">
+			</li>
+			<li>
+				<label for="name">Nom:</label>
+				<input type="text" name="name" value="<?= $customer['Cust_Name']?>">
+			</li>
+			<li>
+				<label for="mail">Mail:</label>
+				<input type="mail" name="mail" value="<?= $customer['Cust_Mail']?>">
+			</li>
+			<li>
+				<label for="phone">Téléphone:</label>
+				<input type="phone" name="phone" value="<?= $customer['Cust_Phone']?>">
+			</li>
+			<li>
+				<label for="DoB">Date de naissance:</label>
+				<input type="date" name="DoB" value="<?= $customer['Cust_DoB']?>">
+			</li>
+			<li id="adresse">
+				<label for="address1">Adresse principale:</label>
+				<textarea name="address1" rows="4"><?= $customer['Cust_Address1']?></textarea>
+			</li>
+			<li id="adresse">
+				<label for="address2">Adresse secondaire:</label>
+				<textarea name="address2" rows="4"><?= $customer['Cust_Address2']?></textarea>
+			</li>
+			<li>
+				<label for="CP">Code Postal:</label>
+				<input type="text" name="CP" value="<?= $customer['Cust_CP']?>">
+			</li>
+			<li>
+				<label for="village">Ville/Village:</label>
+				<input type="text" name="village" value="<?= $customer['Cust_City']?>">
+			</li>
+			<li>
+				<label for="delivery">Choix de la récupération :</label>
+				<select name="delivery">
+				<option value="<?= $customer['Delivery_Id']?>"><?= $customer['Delivery_Name']?></option>
+				<?php foreach ($deliveries as $delivery) : ?>
+					<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Name'] ?></option>
+				<?php endforeach; ?>
+				</select>
+			</li>
+		</ul>
+
+	<button type="submit" name="modification">Modifier</button>
+	<button type="submit" name="delete">Effacer le compte</button>
+	</form>
+	</fieldset>
+</section>
+
+<section>
+	<fieldset>
+		<h2>Changer le mot de passe</h2>
+		<form action="compte.php?lang=fr" method="POST">
+			<ul>
+				<li>
+					<label for="newPswd1">Saisissez votre nouveau mot de passe: </label>
+					<input type="password" name="newPswd1">
+				</li>
+				<li>
+					<label for="newPswd2">Saisissez à nouveau votre nouveau mot de passe: </label>
+					<input type="password" name="newPswd2">
+				</li>
+			</ul>
+			<button type="submit" name="newPswd" id="mdfPswd">Modifier</button>
+		</form>
+	</fieldset>
+</section>
+
+</div>
+
+
+
+<?php else: ?>
+
+<div id="content">	
+
+<section id="creation">
+	<fieldset>
+	<h2>Ene kontua</h2>
+	<form method="POST" action="compte.php?lang=eus">
+		<ul>
+			<li>
+				<label for="civility">Gizalegea:</label>
+				<select name="civility">
+					<option value="<?= $customer['Cust_Civility']?>"><?= $customer['Cust_Civility']?></option>
+					<option value="Madame">Andere</option>
+					<option value="Monsieur">Jaun</option>
+				</select>
+			</li>
+			<li>
+				<label for="firstName">Izena:</label>
+				<input type="text" name="firstName" value="<?= $customer['Cust_FirstName']?>">
+			</li>
+			<li>
+				<label for="name">Abizena:</label>
+				<input type="text" name="name" value="<?= $customer['Cust_Name']?>">
+			</li>
+			<li>
+				<label for="mail">Mail:</label>
+				<input type="mail" name="mail" value="<?= $customer['Cust_Mail']?>">
+			</li>
+			<li>
+				<label for="phone">Telefono:</label>
+				<input type="phone" name="phone" value="<?= $customer['Cust_Phone']?>">
+			</li>
+			<li>
+				<label for="DoB">Jaiotze data:</label>
+				<input type="date" name="DoB" value="<?= $customer['Cust_DoB']?>">
+			</li>
+			<li id="adresse">
+				<label for="address1">Helbidea nagusia:</label>
+				<textarea name="address1" rows="4"><?= $customer['Cust_Address1']?></textarea>
+			</li>
+			<li id="adresse">
+				<label for="address2">Bigarren helbidea:</label>
+				<textarea name="address2" rows="4"><?= $customer['Cust_Address2']?></textarea>
+			</li>
+			<li>
+				<label for="CP">Posta kodea:</label>
+				<input type="text" name="CP" value="<?= $customer['Cust_CP']?>">
+			</li>
+			<li>
+				<label for="village">Herria:</label>
+				<input type="text" name="village" value="<?= $customer['Cust_City']?>">
+			</li>
+			<li>
+				<label for="delivery">Berreskuratzeko aukera :</label>
+				<select name="delivery">
+				<option value="<?= $customer['Delivery_Id']?>"><?= $customer['Delivery_Izenburua']?></option>
+				<?php foreach ($deliveries as $delivery) : ?>
+					<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Izenburua'] ?></option>
+				<?php endforeach; ?>
+				</select>			
+			</li>
+		</ul>
+		</ul>
+	<button type="submit" name="modification">Aldatzeko</button>
+	<button type="submit" name="delete">Kontua ezabatu</button>
+	</form>
+	</fieldset>
+</section>
+
+<section>
+	<fieldset>
+		<h2>Pasahitza aldatu</h2>
+		<form action="compte.php?lang=fr" method="POST">
+			<ul>
+				<li>
+					<label for="newPswd1">Sartu zure pasahitz berria: </label>
+					<input type="password" name="newPswd1">
+				</li>
+				<li>
+					<label for="newPswd2">Berriro sartu zure pasahitz berria: </label>
+					<input type="password" name="newPswd2">
+				</li>
+			</ul>
+			<button type="submit" name="newPswd" id="brPh">Modifier</button>
+		</form>
+	</fieldset>
+</section>
+
+</div>
+
+
+
+<?php endif; ?>
+
+</div>
+

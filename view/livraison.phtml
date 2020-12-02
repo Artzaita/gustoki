@@ -1,0 +1,108 @@
+<div id="delivery">
+
+	<?php if ($langue == 'fr'): ?>
+		<h1>La livraison chez Gustoki</h1>
+		<section>
+			<h2>Gustoki, toujours au plus près de vous</h2>
+			<p>Nous allons chercher les meilleurs produits du Pays Basque et nous vous les apportons au plus près de chez vous ou de vos activités.</p>
+
+			<h3>En Livraison :</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Dénomination</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($deliveries as $delivery): ?>
+					<?php if($delivery['Delivery_Type'] == 'Livraison'): ?>
+					<tr>
+						<td><?= $delivery['Delivery_Name'] ?></td>
+						<td><?= $delivery['Delivery_Description'] ?></td>
+					</tr>
+					<?php endif; ?>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<h3>En Retrait :</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Dénomination</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($deliveries as $delivery): ?>
+					<?php if($delivery['Delivery_Type'] == 'Retrait'): ?>
+					<tr>
+						<td><?= $delivery['Delivery_Name'] ?></td>
+						<td><?= $delivery['Delivery_Description'] ?></td>
+					</tr>
+					<?php endif; ?>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+		</section>
+		
+
+
+
+	<?php else: ?>
+		<h1>Gustoki banatzea</h1>
+		<section>
+			<h2>Gustoki, beti gertuago</h2>
+			<p>Euskal Herriko produktu onenak bilatuko ditugu eta zure etxera edo zure jarduerekin ahalik eta gertuen ekarriko ditugu.</p>
+
+			<h3>Entregatzean :</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Izenburua</th>
+						<th>Deskribapen</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($banatzeak as $banatze): ?>
+					<?php if($banatze['Delivery_Type'] == 'Livraison'): ?>
+					<tr>
+						<td><?= $banatze['Delivery_Izenburua'] ?></td>
+						<td><?= $banatze['Delivery_Deskribapen'] ?></td>
+					</tr>
+					<?php endif; ?>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<h3>En Retrait :</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Izenburua</th>
+						<th>Deskribapen</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($banatzeak as $banatze): ?>
+					<?php if($banatze['Delivery_Type'] == 'Retrait'): ?>
+					<tr>
+						<td><?= $banatze['Delivery_Izenburua'] ?></td>
+						<td><?= $banatze['Delivery_Deskribapen'] ?></td>
+					</tr>
+					<?php endif; ?>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+		</section>
+
+
+
+
+
+	<?php endif; ?>
+
+</div>

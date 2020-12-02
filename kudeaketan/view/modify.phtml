@@ -1,0 +1,306 @@
+<h1>Modification</h1>
+
+<?php if (isset($_GET["type"]) && $_GET["type"]=="product"): ?>
+<form id="modify" method="POST" action="modify.php?<?= $action ?>" enctype="multipart/form-data">
+	<fieldset>
+		<table>
+			<thead></thead>
+			<tbody>
+				<tr>
+					<td>
+						<input type="text" name="title" value="<?= $product['Title'] ?>">
+					</td>
+					<td>
+						<input type="text" name="izena" value="<?= $product['Izenburua'] ?>">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="description_long" rows="20"><?= htmlspecialchars($product['Description_Long'])?></textarea>
+					</td>
+					<td>
+						<textarea name="deskribapen_luzea" rows="20"><?= htmlspecialchars($product['Deskribapen_Luzea'])?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Catégorie :
+					</td>
+					<td>
+						<select name="categoryId">
+							<option value="<?= $product['Product_Category_Id'] ?>"><?= $product['Category'] ?></option>
+							<?php foreach($categories as $category): ?>
+							<option value="<?= $category['Id']?>"><?= $category['Category']?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="quantity" value="<?= $product['Quantity'] ?>">
+					</td>
+					<td>
+						<select name="unityId">
+							<option value="<?= $product['Unity_Id'] ?>"><?= $product['Unity'] ?></option>
+							<?php foreach($unities as $unity): ?>
+							<option value="<?= $unity['Id']?>"><?= $unity['Unity']?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="weight" Value="<?= $product['Weight'] ?>">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="price" value="<?= $product['Price'] ?>">
+					</td>
+					<td>
+						eusko/euro
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Producteurs :
+					</td>
+					<td>
+						<select name="producerId">
+							<option value="<?= $product['Producer_Id'] ?>"><?= $product['Producer_Name'] ?></option>
+							<?php foreach($producers as $producer): ?>
+							<option value="<?= $producer['Producer_Id']?>"><?= $producer['Producer_Name']?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label Idoki :
+					</td>
+					<td>
+						<select name="Idoki">
+							<option value="<?= $product['Product_Label_Idoki'] ?>"><?= $product['Product_Label_Idoki'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AOP :
+					</td>
+					<td>
+						<select name="AOP">
+							<option value="<?= $product['Product_Label_AOP'] ?>"><?= $product['Product_Label_AOP'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AB :
+					</td>
+					<td>
+						<select name="AB">
+							<option value="<?= $product['Product_Label_Bio'] ?>"><?= $product['Product_Label_Bio'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label En Conversion :
+					</td>
+					<td>
+						<select name="Conversion">
+							<option value="<?= $product['Product_Label_Conversion'] ?>"><?= $product['Product_Label_Conversion'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Produit du mois :
+					</td>
+					<td>
+						<select name="Promotion">
+							<option value="<?= $product['Product_Promotion'] ?>"><?= $product['Product_Promotion'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<ul>
+		<p>Enregistrement d'une photo :</p>
+		<input type="hidden" name="MAX_FILE_SIZE" value="4194304">
+		<li><input type="file" name="photo" accept=".jpg, .jpeg, .png"></li>
+		<li>
+			<input type="text" name="ImageDescription" placeholder="Description de la photo">
+			<input type="text" name="IrudiDeskribapen" placeholder="Irudiaren deskribapena"></li>
+		</ul>
+
+		<button type="submit" name="record">Modifier le produit</button>
+
+
+	</fieldset>
+
+</form>
+
+<?php elseif (isset($_GET["type"]) && $_GET["type"]=="producer"): ?>
+<form id="modify" method="POST" action="modify.php?<?= $action ?>" enctype="multipart/form-data">
+	<fieldset>
+		<table>
+			<thead></thead>
+			<tbody>
+				<tr>
+					<td>
+						<input type="text" name="title" value="<?= $producer['Producer_Name'] ?>">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="description" rows="20"><?= $producer['Producer_Description'] ?></textarea>
+					</td>
+					<td>
+						<textarea name="deskribapen" rows="20"><?= $producer['Producer_Deskribapen'] ?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="village"><?= $producer['Village'] ?></textarea>
+					</td>
+					<td>
+						<textarea name="herria"><?= $producer['Herria'] ?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="installation">Année d'installation :</label>
+					</td>
+					<td>
+						<input type="text" name="installation" value="<?= $producer['Installation'] ?>">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label Idoki :
+					</td>
+					<td>
+						<select name="Idoki">
+							<option value="<?= $producer['Producer_Label_Idoki'] ?>"><?= $producer['Producer_Label_Idoki'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AOP :
+					</td>
+					<td>
+						<select name="AOP">
+							<option value="<?= $producer['Producer_Label_AOP'] ?>"><?= $producer['Producer_Label_AOP'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AB :
+					</td>
+					<td>
+						<select name="AB">
+							<option value="<?= $producer['Producer_Label_AB'] ?>"><?= $producer['Producer_Label_AB'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label En Conversion :
+					</td>
+					<td>
+						<select name="Conversion">
+							<option value="<?= $producer['Producer_Label_Conversion'] ?>"><?= $producer['Producer_Label_Conversion'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Producteur en avant :
+					</td>
+					<td>
+						<select name="Promotion">
+							<option value="<?= $producer['Producer_Promotion'] ?>"><?= $producer['Producer_Promotion'] ?></option>
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<ul>
+		<p>Enregistrement d'une photo (Max 4Mo) :</p>
+		<input type="hidden" name="MAX_FILE_SIZE" value="4194304">
+		<li><input type="file" name="photo" accept=".jpg, .jpeg, .png"></li>
+		<li>
+			<input type="text" name="ImageDescription" placeholder="Description de la photo">
+			<input type="text" name="IrudiDeskribapen" placeholder="Irudiaren deskribapena"></li>
+		</ul>
+
+		<button type="submit" name="record">Modifier le producteur</button>
+
+
+	</fieldset>
+
+</form>
+
+<?php elseif (isset($_GET["type"]) && $_GET["type"]=="delivery"): ?>
+
+		<fieldset>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Nom de la Livraison</th>
+					<th>Banatzen Izenburua</th>
+					<th>Description</th>
+					<th>Deskribapen</th>
+					<th>Type</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<form method="POST" action="modify.php?<?= $action ?>">
+					<td><input type="text" name="Name" value="<?= $delivery['Delivery_Name'] ?>"></td>
+					<td><input type="text" name="Izenburua" value="<?= $delivery['Delivery_Izenburua'] ?>"></td>
+					<td><textarea name="Description"><?= $delivery['Delivery_Description'] ?></textarea></td>
+					<td><textarea name="Deskribapen"><?= $delivery['Delivery_Deskribapen'] ?></textarea></td>
+					<td><select name="Type">
+								<option value="<?= $delivery['Delivery_Type'] ?>"><?= $delivery['Delivery_Type'] ?></option>
+								<option value="Retrait">Retrait</option>
+								<option value="Livraison">Livraison</option>
+							</select></td>
+					<td>
+							<input type="hidden" name="id_Delivery" value="<?= $delivery['Delivery_Id']?>">
+							<button type="submit" name="record">Modifier le point de livraison</button>
+					</td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
+		</fieldset>
+
+
+<?php endif; ?>

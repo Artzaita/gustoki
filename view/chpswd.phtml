@@ -1,0 +1,31 @@
+<?php if ($langue == 'fr'): ?>
+	<h1>Réinitialisation de mot de passe</h1>
+
+	<form action="chpswd.php?lang=fr&login=<?= $_GET['login'] ?>" method='POST'>
+		<input type="hidden" value="<?= $_GET['login'] ?>" name='email'>
+		<input type="password" name='pswd'>
+
+		<button type="submit">Modifier</button>
+
+
+	</form>
+
+
+
+
+<?php else: ?>
+
+	<h1>Pasahitza berrezarri</h1>
+
+	<form action="chpswd.php?lang=eus&login=<?= $_GET['login'] ?>" method='POST'>
+		<input type="hidden" value="<?= $_GET['login'] ?>" name='email'>
+		<input type="password" name='pswd'>
+
+		<button type="submit">Editatu</button>
+
+
+	</form>
+
+
+
+<?php endif; ?>

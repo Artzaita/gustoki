@@ -1,0 +1,72 @@
+<div id="orders">
+<h1>Liste des commandes</h1>
+
+
+<h2>Semaine en cours</h2>
+
+<button><a href="export/listing_S<?= $actualWeek ?>.xlsx">Télécharger le fichier</a></button>
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>numéro de commande</th>
+			<th>numéro client</th>
+			<th>nom du client</th>
+			<th>Produit</th>
+			<th>Quantité</th>
+			<th>date de la commande</th>
+			<th>point de livraison</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+<?php foreach ($orders as $order): ?>
+		<tr>
+			<td><?=$order['ManOrder_Order_Number'] ?></td>
+			<td><?=$order['ManOrder_Cust_Number'] ?></td>
+			<td><?=$order['Cust_Name'].' '.$order['Cust_FirstName'] ?></td>
+			<td><?=$order['ManOrder_Product'] ?></td>
+			<td><?=$order['ManOrder_Quantity'] ?></td>
+			<td><?=$order['ManOrder_Date'] ?></td>
+			<td><?=$order['Delivery_Name'] ?></td>
+		</tr>	
+<?php endforeach ?>
+	</tbody>
+
+</table>
+
+<h2>Archives</h2>
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>numéro de commande</th>
+			<th>numéro client</th>
+			<th>nom du client</th>
+			<th>contenu de la commande</th>
+			<th>montant</th>
+			<th>date de la commande</th>
+			<th>point de livraison</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+<?php foreach ($oldOrders as $oldOrder): ?>
+		<tr>
+			<td><?=$oldOrder['Order_Number'] ?></td>
+			<td><?=$oldOrder['Order_Cust_Number'] ?></td>
+			<td><?=$order['Cust_Name'].' '.$order['Cust_FirstName'] ?></td>
+			<td><?=$oldOrder['Order_Contents'] ?></td>
+			<td><?=$oldOrder['Order_Total'] ?></td>
+			<td><?=$oldOrder['Order_Date'] ?></td>
+			<td><?=$oldOrder['Delivery_Name'] ?></td>
+		</tr>	
+<?php endforeach ?>
+	</tbody>
+
+</table>
+
+
+</div>

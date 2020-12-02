@@ -1,0 +1,136 @@
+<div id="listBasket">
+
+	<?php if ($langue == 'fr'): ?>
+
+	<h1>Commande</h1>
+
+	<p>Bonjour, <?= $_SESSION['firstName'] ?>, voici le récapitulatif de votre commande:</p>
+
+	<h2>Votre panier</h2>
+
+	<table id="basket">
+		<thead>
+			<tr>
+				<th>photo</th>
+				<th>produit</th>
+				<th>quantité</th>
+				<th>prix unitaire</th>
+				<th>total</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="4">Total</th>
+				<th id="grandTotal"></th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<?php foreach ($products as $product => $quantity): ?>
+				<?php $parameter = [$product]; ?>
+				<?php $request = "SELECT * FROM `gus_product` INNER JOIN gus_photo ON gus_product.Product_Photo_Id = gus_photo.Id WHERE Product_Id = ?"; ?>
+				<?php $query = fetchData($bdd,$request,$parameter); ?>
+					<tr>
+						<td><img src="img/produit/<?= $query['Photo_Name'] ?>"></td>
+						<td><?= $query['Title'] ?></td>
+						<td>
+							<form method="POST" action="basket.php">
+							<input type="hidden" name="Id_Product" value="<?= $product?>">
+							<input type="number" name="Quantity_Product" value="<?= $quantity ?>" min='0'>
+							<div>
+							<button type="submit" name="modify">Modifier</button>
+							<button type="submit" name="delete">Supprimer</button>
+							</div>
+							</form>
+						</td>
+						<td><?= $query['Price'] ?></td>
+						<td class="sum"><?= $sum = $quantity * $query['Price']; ?></td>
+					</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<h2>Récupération de votre commande</h2>
+	<form id="deliveryChoice" method="POST" action="valid_order.php?lang=fr">
+
+		<div>
+			<select name="delivery" id="delivery">
+				<option value="<?= $customer['Delivery_Id'] ?>"><?= $customer['Delivery_Name'] ?> - <?= $customer['Delivery_Type'] ?></option>
+			<?php foreach($deliveries as $delivery): ?>
+			<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Name'] ?> - <?= $delivery['Delivery_Type'] ?></option>
+			<?php endforeach; ?>
+			</select>
+		</div>
+
+		<button type="submit" name="valid">Valider la Commande</button>
+
+	</form>
+
+	<?php else: ?>
+
+	<h1>Ordena</h1>
+
+	<p>Egun on, <?= $_SESSION['firstName'] ?>, hona hemen zure eskaeraren ordena</p>
+
+	<h2>Zure saskia</h2>
+
+		<table id="basket">
+		<thead>
+			<tr>
+				<th>Irudi</th>
+				<th>Produktuak</th>
+				<th>Kantitate</th>
+				<th>Prezio unitarioa</th>
+				<th>Guztira</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="4">Guztira</th>
+				<th id="grandTotal"></th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<?php foreach ($products as $product => $quantity): ?>
+				<?php $parameter = [$product]; ?>
+				<?php $request = "SELECT * FROM `gus_product` INNER JOIN gus_photo ON gus_product.Product_Photo_Id = gus_photo.Id WHERE Product_Id = ?"; ?>
+				<?php $query = fetchData($bdd,$request,$parameter); ?>
+					<tr>
+						<td><img src="img/produit/<?= $query['Photo_Name'] ?>"></td>
+						<td><?= $query['Izenburua'] ?></td>
+						<td>
+							<form method="POST" action="basket.php">
+							<input type="hidden" name="Id_Product" value="<?= $product?>">
+							<input type="number" name="Quantity_Product" value="<?= $quantity ?>" min='0'>
+							<div>
+							<button type="submit" name="modify">Modifier</button>
+							<button type="submit" name="delete">Supprimer</button>
+							</div>
+							</form>
+						</td>
+						<td><?= $query['Price'] ?></td>
+						<td class="sum"><?= $sum = $quantity * $query['Price']; ?></td>
+					</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<h2>Zure eskaeraren bilketa</h2>
+	<form id="deliveryChoice" method="POST" action="valid_order.php?lang=eus">
+
+		<div>
+			<select name="delivery" id="delivery">
+				<option value="<?= $customer['Delivery_Id'] ?>"><?= $customer['Delivery_Izenburua'] ?> - <?= $customer['Delivery_Type'] ?></option>
+			<?php foreach($deliveries as $delivery): ?>
+			<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Izenburua'] ?> - <?= $delivery['Delivery_Type'] ?></option>
+			<?php endforeach; ?>
+			</select>
+
+		
+		</div>
+
+	<button type="submit" name="valid">Balidatu ordena</button>
+
+	</form>
+
+	<?php endif ?>
+</div>

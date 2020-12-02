@@ -1,0 +1,55 @@
+<nav id="topnav" class="fixedTopNav">
+	<ul>
+		<li><a id="logo" href="index.php?lang=<?= $langue;?>"><img src="img/LogoGUSTOKIv2.png"></a></li>
+		<li>
+			<?php if (isset($query['Id'])): ?>
+			<ul>
+				<!-- <li><a href="<?= $query['Kategoria'] ?>"><img src="img/basque.png"></a></li> -->
+				<li><a href="<?= $ikurrin ?>"><img src="img/basque.png"></a></li>
+				<!-- <li><a href="<?= $query['Category'] ?>"><img src="img/france.jpg"></a></li> -->
+				<li><a href="<?= $drapeau ?>"><img src="img/france.jpg" alt=""></a></li>
+			</ul>
+			<?php else: ?>
+			<ul>
+				<li><a href="<?= $_SERVER['PHP_SELF']; ?>?lang=eus<?= $get2 ?>"><img src="img/basque.png"></a></li>
+				<li><a href="<?= $_SERVER['PHP_SELF']; ?>?lang=fr<?= $get2 ?>"><img src="img/france.jpg"></a></li>
+			</ul>
+			<?php endif ?>
+		</li>
+	
+	<?php if ($langue == 'fr'): ?>
+<!-- 	<ul>
+ -->	<li><a href="index.php?lang=<?= $langue;?>" >Accueil</a></li>
+		<li><a href="marche.php?lang=fr" >Le Marché</a></li>
+		<li><a href="blog.php?lang=fr" >Le Blog</a></li>
+		<li><a href="contact.php?lang=fr" >Contact</a></li>
+		<li id="panier">
+			<a href="panier.php?lang=fr">
+			<?php if ($productSum > 0) : ?>
+			<p id="contenu"><?= $productSum; ?></p>
+		<?php endif; ?>
+			<img src="img/panier.png">
+			</a>
+		</li>
+<!-- 	</ul>
+ -->	
+	<?php else: ?>
+<!-- 	<ul>
+ -->	<li><a href="index.php?lang=<?= $langue;?>" >Harrera</a></li>
+		<li><a href="marche.php?lang=eus" >Merkatua</a></li>
+		<li><a href="blog.php?lang=eus" >Bloga</a></li>
+		<li><a href="contact.php?lang=eus" >Kontaktua</a></li>
+		<li id="panier">
+			<a href="panier.php?lang=eus">
+			<?php if ($productSum > 0) : ?>
+			<p id="contenu"><?= $productSum; ?></p>
+		<?php endif; ?>
+			<img src="img/panier.png">
+			</a>
+		</li>
+<!-- 	</ul>
+ -->	
+	<?php endif; ?>
+
+</ul>
+</nav>

@@ -1,0 +1,53 @@
+main
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+#new table,
+#modify table
+{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#new table input,
+#new table textarea,
+#modify table input,
+#modify table textarea
+{
+	width: 95%;
+}
+
+#product #list,
+#producer #list,
+#customer #list,
+#delivery #list,
+#orders #list
+{
+	border-collapse: collapse;
+}
+
+#product #list th,
+#product #list td,
+#producer #list th,
+#producer #list td,
+#customer #list th,
+#customer #list td,
+#delivery #list th,
+#delivery #list td,
+#orders #list th,
+#orders #list td
+{
+	border: solid 1px #000;
+}
+
+.ui-autocomplete {
+	background-color: #fff;
+	width: 25%;
+	list-style: none;
+}
+
+.ui-autocomplete:hover {
+	cursor: pointer;
+}

@@ -1,0 +1,101 @@
+<div id="producteur">
+	<?php if ($langue == 'fr'): ?>
+<h1>Nos Producteurs</h1>
+<aside id="producers_nav">
+	<table>
+		<tbody>
+			<?php foreach($producers as $producer): ?>
+			<tr>
+				<td><a href="producteurs.php?lang=fr&prodid=<?= $producer['Producer_Id'] ?>"><?= $producer['Producer_Name'] ?></a></td>
+			</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+
+</aside>
+
+
+	<div id='producer'>
+	<?php if (!isset($_GET['prodid'])): ?>
+		<p>Au cours de mes voyages à travers le Pays Basque, je suis allée chercher des producteurs typiques, avec des produits d'une qualité rare. Ces produits, je vous les apporte chez vous. Je vous propose de découvrir ces producteurs ici.</p>
+	<?php endif ?>
+	<?php if (isset($_GET['prodid'])): ?>
+		<section>
+			<fieldset>
+			<h2><?= $producteur['Producer_Name'] ?></h2>
+			<img src="img/producteur/<?= $producteur['Photo_Name'] ?>">
+			<div id='description'>
+					<p>Installation: <?= $producteur['Installation'] ?></p>
+					<p>Village: <?= $producteur['Village'] ?></p>
+			</div>
+			<p><?=  nl2br(htmlspecialchars($producteur['Producer_Description'])) ?></p>
+			</fieldset>
+		</section>
+
+
+		<section id="listing">
+				<h2>Produits associés</h2>
+			<div>
+				<?php foreach($products as $product): ?>
+				<article class="product">
+					<fieldset>
+					<h3><?= $product['Title'] ?></h3>
+					<img src="img/produit/<?= $product['Photo_Name'] ?>">
+					</fieldset>
+				</article>
+				<?php endforeach ?>
+
+			</div>
+		</section>
+	<?php endif ?>
+	</div>
+
+<?php else: ?>
+<h1>Gure Ekoizleak</h1>
+<aside id="producers_nav">
+	<table>
+		<tbody>
+			<?php foreach($producers as $producer): ?>
+			<tr>
+				<td><a href="producteurs.php?lang=eus&prodid=<?= $producer['Producer_Id'] ?>"><?= $producer['Producer_Name'] ?></a></td>
+			</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+
+</aside>
+	<div id="producer">
+	<?php if (!isset($_GET['prodid'])): ?>
+		<p>Euskal Herrira egindako bidaietan, ekoizle tipikoak bilatzera joan ginen, kalitate gutxiko produktuekin. Produktu hauek, zure etxera ekartzen ditugu. Ekoizle hauek hemen ezagutzera gonbidatzen zaitugu.</p>
+	<?php endif ?>
+	<?php if (isset($_GET['prodid'])): ?>
+		<section>
+			<fieldset>
+			<h2><?= $producteur['Producer_Name'] ?></h2>
+			<img src="img/producteur/<?= $producteur['Photo_Name'] ?>">
+			<div id='description'>
+					<p>Installation: <?= $producteur['Installation'] ?></p>
+					<p>Village: <?= $producteur['Herria'] ?></p>
+			</div>
+			<p><?= nl2br(htmlspecialchars($producteur['Producer_Deskribapen'])) ?></p>
+			</fieldset>
+		</section>
+
+		<section id="listing">
+				<h2>Lotutako produktuak</h2>
+			<div>
+				<?php foreach($products as $product): ?>
+				<article class="product">
+					<fieldset>
+					<h3><?= $product['Izenburua'] ?></h3>
+					<img src="img/produit/<?= $product['Photo_Name'] ?>">
+					</fieldset>
+				</article>
+				<?php endforeach ?>
+
+			</div>
+		</section>
+	<?php endif ?>
+	</div>
+<?php endif ?>
+</div>

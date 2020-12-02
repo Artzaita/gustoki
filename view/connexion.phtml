@@ -1,0 +1,212 @@
+<?php if ($langue == 'fr'): ?>
+
+<h1>Connexion</h1>
+
+<div id="content">
+<section id="identification">
+	<fieldset>
+	<h2>Identification</h2>
+
+	<form id="connexion" method="POST" action="connexion.php?lang=fr">
+		<ul>
+			<li><label for='mail'>Mail:</label>
+				<input type="text" name="mail"></li>
+			<li><label for="pswd">Mot de Passe</label>
+				<input type="password" name="paswd"></li>
+		</ul>
+		<button type="submit" name="connexion">Connexion</button>
+		<button><a href="forgotten_password.php?lang=fr">Mot de passe oublié ?</a></button>
+	</form>
+
+	</fieldset>
+</section>
+
+
+<section id="creation">
+	<fieldset>
+	<h2>Création d'un compte</h2>
+	<form method="POST" action="connexion.php?lang=fr">
+		<ul>
+			<li>
+				<label for="civility">Civilité* :</label>
+				<select name="civility">
+					<option value="Madame">Madame</option>
+					<option value="Monsieur">Monsieur</option>
+				</select>
+			</li>
+			<li>
+				<label for="firstName">Prénom* :</label>
+				<input type="text" name="firstName" required="">
+			</li>
+			<li>
+				<label for="name">Nom* :</label>
+				<input type="text" name="name" required="">
+			</li>
+			<li>
+				<label for="mail">Mail* :</label>
+				<input type="mail" name="mail" required="">
+			</li>
+			<li>
+				<label for="pswd">Mot de passe* :</label>
+				<input type="password" name="pswd" required="">
+			</li>
+			<li>
+				<label for="phone">Téléphone* :</label>
+				<input type="phone" name="phone" required="">
+			</li>
+			<li>
+				<label for="DoB">Date de naissance:</label>
+				<input type="date" name="DoB">
+			</li>
+			<li id="adresse">
+				<label for="address1">Adresse principale* :</label>
+				<textarea name="address1" rows="4" required=""></textarea>
+			</li>
+			<li id="adresse">
+				<label for="address2">Adresse secondaire:</label>
+				<textarea name="address2" rows="4"></textarea>
+			</li>
+			<li>
+				<label for="CP">Code Postal* :</label>
+				<input type="text" name="CP" id="rechercheCP" required="">
+			</li>
+			<li>
+				<label for="village">Ville/Village* :</label>
+				<input type="text" name="village" id="rechercheV" required="">
+			</li>
+			<li>
+				<label for="delivery">Préférence de récupération* :</label>
+				<select name="delivery" id="delivery" required="">
+					<option value="">-- Faites votre choix --</option>
+				<?php foreach($deliveries as $delivery): ?>
+				<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Name'] ?> - <?= $delivery['Delivery_Type'] ?></option>
+				<?php endforeach; ?>
+				</select>
+			</li>
+			<li>
+				<label for="question">Choisissez une question pour pouvoir réinitialiser votre mot de passe* :</label>
+				<select name="question" id="question">
+					<?php foreach($questions as $question): ?>
+					<option value="<?= $question['Quest_Id'] ?>"><?= $question['Quest_Question'] ?></option>
+					<?php endforeach; ?>
+				</select>
+			</li>
+			<li>
+				<label for=""> </label>
+				<input type="text" name="answer" required="">
+			</li>
+		</ul>
+
+	<button type="submit" name="creation">Créer</button>
+	</form>
+	<p>*: champ obligatoire</p>
+	</fieldset>
+</section>
+
+</div>
+
+<?php else: ?>
+
+<h1>Konexio</h1>
+
+<div id="content">
+<section id="identification">
+	<fieldset>
+	<h2>Identifikazio</h2>
+
+	<form id="connexion" method="POST" action="connexion.php?lang=eus">
+		<ul>
+			<li><label for='mail'>Mail:</label>
+				<input type="text" name="mail"></li>
+			<li><label for="pswd">Pasahitza</label>
+				<input type="password" name="paswd"></li>
+		</ul>
+		<button type="submit" name="connexion">Konexio</button>
+		<button><a href="forgotten_password.php?lang=fr">Zure pasahitza ahaztu duzu ?</a></button>
+	</form>
+
+	</fieldset>
+</section>
+
+<section id="creation">
+	<fieldset>
+	<h2>Kontua sortzea</h2>
+	<form method="POST" action="connexion.php?lang=eus">
+		<ul>
+			<li>
+				<label for="civility">Gizalegea :</label>
+				<select name="civility">
+					<option value="Madame">Andere</option>
+					<option value="Monsieur">Jaun</option>
+				</select>
+			</li>
+			<li>
+				<label for="firstName">Izena* :</label>
+				<input type="text" name="firstName" required="">
+			</li>
+			<li>
+				<label for="name">Abizena* :</label>
+				<input type="text" name="name" required="">
+			</li>
+			<li>
+				<label for="mail">Mail* :</label>
+				<input type="mail" name="mail" required="">
+			</li>
+			<li>
+				<label for="pswd">Pasahitza* :</label>
+				<input type="password" name="pswd" required="">
+			</li>
+			<li>
+				<label for="phone">Telefono* :</label>
+				<input type="phone" name="phone" required="">
+			</li>
+			<li>
+				<label for="DoB">Jaiotze data:</label>
+				<input type="date" name="DoB">
+			</li>
+			<li id="adresse">
+				<label for="address1">Helbidea nagusia* :</label>
+				<textarea name="address1" rows="4" required=""></textarea>
+			</li>
+			<li id="adresse">
+				<label for="address2">Bigarren helbidea:</label>
+				<textarea name="address2" rows="4"></textarea>
+			</li>
+			<li>
+				<label for="CP">Posta kodea* :</label>
+				<input type="text" name="CP" id="rechercheCP" required="">
+			</li>
+			<li>
+				<label for="village">Herria* :</label>
+				<input type="text" name="village" id="rechercheV" required="">
+			</li>
+			<li>
+				<label for="delivery">Berreskuratzeko lehentasuna* :</label>
+				<select name="delivery" id="delivery" required="">
+				<?php foreach($deliveries as $delivery): ?>
+					<option value="">-- Egin zure aukera --</option>
+				<option value="<?= $delivery['Delivery_Id'] ?>"><?= $delivery['Delivery_Izenburua'] ?> - <?= $delivery['Delivery_Type'] ?></option>
+				<?php endforeach; ?>
+				</select>
+			</li>
+			<li>
+				<label for="question">Aukeratu galdera bat zure pasahitza berrezarri ahal izateko* :</label>
+				<select name="question" id="question">
+					<?php foreach($questions as $question): ?>
+					<option value="<?= $question['Quest_Id'] ?>"><?= $question['Quest_Galdera'] ?></option>
+					<?php endforeach; ?>
+				</select>
+			</li>
+			<li>
+				<label for=""> </label>
+				<input type="text" name="answer" required="">
+			</li>
+		</ul>
+	<button type="submit" name="creation">Sortzen</button>
+	</form>
+	<p>*: beharrezko eremuak</p>
+	</fieldset>
+</section>
+</div>
+
+<?php endif; ?>

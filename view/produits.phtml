@@ -1,0 +1,250 @@
+<div id="produit">
+<?php if ($langue == 'fr'): ?>
+
+	<h1>Produits</h1>
+
+	<p>Rayon : <?= $cat ?></p>
+
+<aside id="cat_nav">
+	<table>
+		<tbody>
+		<tr>
+			<td><a href="produits">Voir</a></td>
+			<td><a href="produits">Tous les produits</a></td>
+		</tr>
+		<?php foreach($categories as $category): ?>
+		<tr>
+			<td><a href="<?= str_replace(' ', '-', $category['Category']) ?>">Voir</a></td>
+			<td><a href="<?= str_replace(' ', '-', $category['Category']) ?>"><?= $category['Category']  ?></a></td>
+		</tr>
+		<?php endforeach ?>
+		</tbody>
+	</table>
+</aside>
+
+
+	<?php if (empty($products)): ?>
+
+
+	<section id="vide">
+		<h2>ce rayon est vide</h2>
+
+		<p>Revenez plus tard pour voir ce que je vous ai préparé.</p>
+		<p>En attendant, vous pouvez continuer votre visite dans le reste de votre <a href=" <?= $_SERVER['PHP_SELF'] ?>?lang=fr">Marché</a>.</p>
+
+	</section>
+
+	<?php else: ?>
+
+	<?php foreach($products as $product): ?>
+	<?php if($product['Quantity']>0): ?>
+	<article id="<?= $product['Product_Id'] ?>" class="product">
+	<fieldset>
+		<h2><?= $product['Title'] ?></h2>
+		<div id="label">
+			<?php if ($product['Product_Label_Idoki'] == 'oui'): ?>
+			<img src="img/label/idoki.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_AOP'] == 'oui'): ?>
+			<img src="img/label/aop.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_Bio'] == 'oui'): ?>
+			<img src="img/label/ab.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_Conversion'] == 'oui'): ?>
+			<img src="img/label/conversion.jpg" class="label">
+			<?php endif ?>
+		</div>
+		<div class="global">
+			<div class="image">
+				<img src="img/produit/<?= $product['Photo_Name'] ?>">
+			</div>
+			<div class="description">
+					<p><?= nl2br(htmlspecialchars($product['Description_Long']))?></p>
+					<p>Producteur : <?= $product['Producer_Name'] ?></p>
+			</div>
+		</div>
+		<div class="data">
+			<div class="general">
+				<p>Stock : <?= $product['Quantity'] ?> <?= $product['Unity'] ?></p>
+				<p><?= $product['Price'] ?> euro/eusko</p>
+			</div>
+			<form method="POST" action="basket.php">
+				<ul>
+			<?php if (isset($product['Weight']) && $product['Weight']>0): ?>
+				<li>
+					<label for="medWeight">Poids moyen (kg) : </label>
+					<input type="text" value="<?=$product['Weight'] ?>" id="medWeight" name="medWeight" readonly disabled>
+				</li>
+				<li>
+					<label for="medPrice">Prix moyen : </label>
+					<input type="text" value="<?= round($product['Weight']*$product['Price'],2) ?> eusko/euro" id="medPrice" name="medPrice" readonly disabled>
+				</li>
+			<?php endif; ?>
+				<li>
+					<select name="quantity">
+						<?php for ($i=1; $i <= 10; $i++): ?>
+						<option value="<?= $i ?>"><?= $i ?></option>
+						<?php endfor ?>
+					</select>
+					<button type="submit" name="addBasket" value="<?= $product['Product_Id'] ?>">Ajouter au panier</button>
+				</li>
+				</ul>
+			</form>
+		</div>
+	</fieldset>
+	</article>
+	<?php endif ?>
+	<?php endforeach ?>
+
+	<?php endif ?>
+
+<?php else: ?>
+
+	<h1>Ekoizpenak</h1>
+
+	<p>Denda : <?= $kat ?></p>
+
+<aside id="cat_nav">
+	<table>
+		<tbody>
+		<tr>
+			<td><a href="ekoizpenak">Ikus</a></td>
+			<td><a href="ekoizpenak">Ekoizpen guztiak</a></td>
+		</tr>
+		<?php foreach($categories as $category): ?>
+		<tr>
+			<td><a href="<?= str_replace(' ', '-', $category['Kategoria']) ?>">Ikus</a></td>
+			<td><a href="<?= str_replace(' ', '-', $category['Kategoria']) ?>"><?= $category['Kategoria']  ?></a></td>
+		</tr>
+		<?php endforeach ?>
+		</tbody>
+	</table>
+</aside>
+
+	<?php if(empty($products)): ?>
+
+	<section id="vide">
+		
+		<h2>denda hutsik dago</h2>
+
+		<p>Itzuli geroago zer prestatu dudan ikusteko.</p>
+		<p>Bitartean, zure bisita gainerako <a href=" <?= $_SERVER['PHP_SELF'] ?>?lang=eus">Merkatuan</a> jarrai dezakezu.</p>
+
+	</section>
+
+	<?php else: ?>
+
+	<?php foreach($products as $product): ?>
+	<?php if($product['Quantity']>0): ?>
+	<article id="<?= $product['Product_Id'] ?>" class="product">
+	<fieldset>
+		<h2><?= $product['Izenburua'] ?></h2>
+		<div id="label">
+			<?php if ($product['Product_Label_Idoki'] == 'oui'): ?>
+			<img src="img/label/idoki.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_AOP'] == 'oui'): ?>
+			<img src="img/label/aop.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_Bio'] == 'oui'): ?>
+			<img src="img/label/ab.jpg" class="label">
+			<?php endif ?>
+			<?php if ($product['Product_Label_Conversion'] == 'oui'): ?>
+			<img src="img/label/conversion.jpg" class="label">
+			<?php endif ?>
+		</div>
+		<div class="global">
+			<div class="image">
+				<img src="img/produit/<?= $product['Photo_Name'] ?>">
+			</div>
+			<div class="description">
+					<p><?= nl2br(htmlspecialchars($product['Deskribapen_Luzea']))?></p>
+					<p>Producteur : <?= $product['Producer_Name'] ?></p>
+			</div>
+		</div>
+		<div class="data">
+			<div class="general">
+				<p>Stock : <?= $product['Quantity'] ?> <?= $product['Unity'] ?></p>
+				<p><?= $product['Price'] ?> euro/eusko</p>
+			</div>
+			<form method="POST" action="basket.php">
+				<ul>
+			<?php if (isset($product['Weight']) && $product['Weight']>0): ?>
+				<li>
+					<label for="medWeight">Batez besteko pisua (kg) : </label>
+					<input type="text" value="<?=$product['Weight'] ?>" id="medWeight" name="medWeight" readonly disabled>
+				</li>
+				<li>
+					<label for="medPrice">Batez besteko prezioa : </label>
+					<input type="text" value="<?= round($product['Weight']*$product['Price'],2) ?> eusko/euro" id="medPrice" name="medPrice" readonly disabled>
+				</li>
+			<?php endif; ?>
+				<li>
+					<select name="quantity">
+						<?php for ($i=1; $i <= 10; $i++): ?>
+						<option value="<?= $i ?>"><?= $i ?></option>
+						<?php endfor ?>
+					</select>
+					<button type="submit" name="addBasket" value="<?= $product['Product_Id'] ?>">Gehitu saskira</button>
+				</li>
+				</ul>
+			</form>
+		</div>
+	</fieldset>
+	</article>
+	<!-- <article id="<?= $product['Product_Id'] ?>" class="product">
+	<fieldset>
+	<h2><?= $product['Izenburua'] ?></h2>
+	<img src="img/produit/<?= $product['Photo_Name'] ?>">
+	<div>
+		<?php if ($product['Product_Label_Idoki'] == 'oui'): ?>
+		<img src="img/label/idoki.jpg" class="label">
+		<?php endif ?>
+		<?php if ($product['Product_Label_AOP'] == 'oui'): ?>
+		<img src="img/label/aop.jpg" class="label">
+		<?php endif ?>
+		<?php if ($product['Product_Label_Bio'] == 'oui'): ?>
+		<img src="img/label/ab.jpg" class="label">
+		<?php endif ?>
+		<?php if ($product['Product_Label_Conversion'] == 'oui'): ?>
+		<img src="img/label/conversion.jpg" class="label">
+		<?php endif ?>
+	</div>
+	<p><?= nl2br(htmlspecialchars($product['Deskribapen_Luzea']))?></p>
+	<p>Ekoizle : <?= $product['Producer_Name'] ?></p>
+	<p>Stock : <?= $product['Quantity'] ?> <?= $product['Unity'] ?></p>
+	<p><?= $product['Price'] ?> eusko/euro</p>
+	<form method="POST" action="basket.php">
+		<ul>
+	<?php if (isset($product['Weight']) && $product['Weight']>0): ?>
+		<li>
+			<label for="medWeight">Batez besteko pisua (kg) : </label>
+			<input type="text" value="<?=$product['Weight'] ?>" id="medWeight" name="medWeight" readonly>
+		</li>
+		<li>
+			<label for="medPrice">Batez besteko prezioa : </label>
+			<input type="text" value="<?= round($product['Weight']*$product['Price'],2) ?>" id="medPrice" name="medPrice" readonly>
+		</li>
+	<?php endif; ?>
+		<li>
+			<select name="quantity">
+				<?php for ($i=1; $i <= 10; $i++): ?>
+				<option value="<?= $i ?>"><?= $i ?></option>
+				<?php endfor ?>
+			</select>
+		</li>
+
+		<button type="submit" name="addBasket" value="<?= $product['Product_Id'] ?>">Gehitu saskira</button>
+		</ul>
+	</form>
+
+	</fieldset>
+	</article> -->
+	<?php endif ?>
+	<?php endforeach ?>
+
+	<?php endif ?>
+
+<?php endif; ?>
+</div>

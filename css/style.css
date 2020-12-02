@@ -1,0 +1,663 @@
+/* FONT FACES*/
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-Regular.eot');
+    src: url('./font/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Regular.woff2') format('woff2'),
+        url('./font/Lato-Regular.woff') format('woff'),
+        url('./font/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-BoldItalic.eot');
+    src: url('./font/Lato-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-BoldItalic.woff2') format('woff2'),
+        url('./font/Lato-BoldItalic.woff') format('woff'),
+        url('./font/Lato-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-BlackItalic.eot');
+    src: url('./font/Lato-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-BlackItalic.woff2') format('woff2'),
+        url('./font/Lato-BlackItalic.woff') format('woff'),
+        url('./font/Lato-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-Light.eot');
+    src: url('./font/Lato-Light.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Light.woff2') format('woff2'),
+        url('./font/Lato-Light.woff') format('woff'),
+        url('./font/Lato-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('./font/Lato-HairlineItalic.eot');
+    src: url('./font/Lato-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-HairlineItalic.woff2') format('woff2'),
+        url('./font/Lato-HairlineItalic.woff') format('woff'),
+        url('./font/Lato-HairlineItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-Black.eot');
+    src: url('./font/Lato-Black.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Black.woff2') format('woff2'),
+        url('./font/Lato-Black.woff') format('woff'),
+        url('./font/Lato-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-Bold.eot');
+    src: url('./font/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Bold.woff2') format('woff2'),
+        url('./font/Lato-Bold.woff') format('woff'),
+        url('./font/Lato-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('./font/Lato-Hairline.eot');
+    src: url('./font/Lato-Hairline.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Hairline.woff2') format('woff2'),
+        url('./font/Lato-Hairline.woff') format('woff'),
+        url('./font/Lato-Hairline.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-LightItalic.eot');
+    src: url('./font/Lato-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-LightItalic.woff2') format('woff2'),
+        url('./font/Lato-LightItalic.woff') format('woff'),
+        url('./font/Lato-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./font/Lato-Italic.eot');
+    src: url('./font/Lato-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./font/Lato-Italic.woff2') format('woff2'),
+        url('./font/Lato-Italic.woff') format('woff'),
+        url('./font/Lato-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+/* GLOBAL */
+/* Démarrage en disposition Mobile First */
+
+* {
+	/* les éléments prennent en compte les bordures pour ne pas dépasser des éléments parents */
+	box-sizing: border-box; 
+}
+
+html {
+	/* mise en place d'une taille de police de base à 10px */
+	font-size: 62.5%;
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	font-family: 'Lato';
+	font-size: 2rem;
+	color: #777;
+    background-color: #D2B48C50;
+}
+
+img {
+	max-width: 100%; /* les images prennent au maximum la largeur de l'élément parent */
+	margin: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #777;
+}
+
+ul {
+	/* blocage du comportement des listes par les user-agents */
+	list-style: none;
+	margin-top: 0;
+	margin-left: -40px;
+}
+
+h1, h2, h3, h4 {
+	margin: 1rem;
+    color: #87226C;
+}
+
+h1	{
+	text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+@keyframes slideDown {
+  0%   { top: -100%; }
+  100% { top: -3%; }
+}
+
+@-webkit-keyframes slideDown {
+  0%   { top: -100%; }
+  100% { top: -3%; }
+}
+
+#info {
+    position: absolute;
+    width: 85%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    animation: slideDown 3s forwards;
+    -webkit-animation: slideDown 3s forwards;
+}
+
+
+@media screen and (min-width: 768px) {
+
+.fixedTopNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5em;
+    z-index: 10;
+}
+
+/* mise en forme de la navigation haute et basse */
+#topnav, #bottomnav {
+	border-top: 5px #8c2269 solid;
+	box-shadow: 0px 10px 6px 0px rgba(0,0,0,0.17);
+	padding-bottom: 1rem;
+    background-color: #fff;
+}
+
+#topnav>ul, #bottomnav>ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 2rem 0;
+}
+
+#topnav>ul {
+	padding-right: 1rem;
+}
+
+#topnav ul li {
+	width: 15%;
+}
+
+#topnav #panier {
+	width: 5rem;
+	position: relative;
+}
+
+#topnav #panier #contenu {
+	/*float: right;*/
+	position: absolute;
+	right: -1rem;
+	top: -3rem;
+	/*width: 2rem;
+	height: 2rem;*/
+	border-radius: 50%;
+	background-color: #c43e46;
+	color: #fff;
+	font-size: 1rem;
+	padding: 1rem;
+}
+
+#logo {
+	display: block;
+}
+
+#real {
+	font-size: 15px;
+	text-align: center;
+}
+
+/* mise en forme du main */
+
+#main {
+    position: relative;
+    top: 8em;
+}
+
+main {
+    min-height: 55vh;
+	width: 85%;
+	margin: 1rem auto;
+}
+
+/*#news article*/ button {
+    border-radius: 50px;
+    border: none;
+    background-color: #afbd36;
+    padding: 1rem;
+}
+
+button, button a {
+    color: #fff;
+    font-weight: bold;
+}
+
+i {
+    color: #afbd36;
+}
+
+/* mise en forme de la page index */
+.slider {
+	width: 50%;
+	margin: 1rem auto;
+}
+
+#prez::before, #prez::after {
+	content: "";
+	display: block;
+	border-top: 2px solid rgba(135, 34, 108, 1);
+	margin: 0 auto;
+	width: 25%;
+}
+
+#prez div {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+#prez div p {
+    margin: 0;
+}
+
+#news>div {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+#news>div>article {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#news>div>article>h3 {
+    margin: 0;
+}
+
+/* mise en forme du marche */
+
+#marche {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#marche>a {
+    width: 30%;
+    text-align: center;
+}
+
+#marche>a>figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* mise en forme de la page produits et producteurs*/
+
+#cat_nav,
+#producers_nav {
+    z-index: 10;
+    position: fixed;
+    top: 12rem;
+    left: 0;
+}
+
+#cat_nav>table,
+#producers_nav>table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #fff;
+    border-collapse: collapse;
+}
+
+/*#cat_nav tbody {
+    background-color: #afbd3688;
+}*/
+
+#cat_nav>table>tbody>tr:hover {
+    cursor: grab;
+}
+
+#cat_nav>table>tbody>tr td,
+#producers_nav>table>tbody>tr td {
+    padding: 0.5rem 0.5rem 0;
+}
+
+#cat_nav>table>tbody>tr td:first-child,
+#producers_nav>table>tbody>tr td {
+    background-color: #87226C;
+}
+
+
+#cat_nav>table>tbody>tr td:nth-child(2) {
+    display: none;
+/*    background-color: #afbd3688;
+*/}
+
+#cat_nav>table>tbody>tr:hover td:nth-child(2) {
+    display: block;
+    background-color: #87226C;
+}
+
+#cat_nav a,
+#producers_nav a {
+    color: #fff;
+}
+
+.product, #vide {
+    width: 75%;
+    margin: 2rem auto;
+}
+
+.product fieldset, #vide {
+    border-radius: 5px;
+    border: 3px #8c2269 solid;
+    background-color: #ffffff;
+}
+
+.product>fieldset>#label {
+    width: 50%;
+}
+
+.product>fieldset>#label>img {
+    width: 7%;
+}
+
+.product>fieldset>img {
+    float: left;
+    width: 25%;
+    margin: 1rem;
+}
+
+/*.product .label {
+    width: 10%;
+    margin: 1rem;
+}*/
+
+.product input {
+    border: none;
+    background-color: #fff;
+}
+
+.global {
+    display: flex;
+    justify-content: space-between;
+}
+
+.global .image {
+    width: 20%;
+}
+
+.global .description {
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+}
+
+.data {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+
+#producer {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#producer #listing>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#producer #listing>div>article {
+    width: 33%;
+    margin: 0;
+}
+
+
+/* mise en forme du blog*/
+
+#container {
+    display: flex;
+}
+#construction {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* mise en forme du formulaire de contact */
+
+#message {
+    display: flex;
+}
+
+#contact {
+    margin: 0 auto;
+}
+
+#message fieldset {
+    border-radius: 5px;
+    border-color: #87226C;
+}
+
+#contact li {
+    margin-top: 1rem;
+}
+
+#contact label {
+    float: left;
+    width: 10rem;
+}
+
+#contact input, #contact select {
+    width: 20rem;
+}
+
+#contact textarea {
+    width: 36rem;
+    height: 6rem;
+}
+
+#contact button {
+   /* border-radius: 50px;
+    border: none;
+    background-color: #c43e46;
+    padding: 1rem;
+    color: #fff;*/
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+}
+
+#locate #adress {
+    display: flex;
+}
+
+/* mise en forme du panier */
+
+#listBasket {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#listBasket #basket {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#listBasket #basket th,
+#listBasket #basket td {
+    border: solid 1px #000;
+}
+
+#listBasket #basket th:first-child,
+#listBasket #basket td:first-child {
+    width: 15%;
+}
+
+#listBasket #deliveryChoice div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#listBasket #deliveryChoice div section {
+    width: 33%;
+}
+
+#listBasket #deliveryChoice div section div {
+    display: flex;
+    flex-direction: column;
+}
+
+#listBasket #deliveryChoice div #detail p {
+    margin: 0;
+}
+
+/* mise en forme de la page connexion */
+
+#content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#content section#identification {
+    width: 20%;
+}
+
+#content section#creation {
+    width: 55%;
+}
+
+#creation ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#creation li {
+    display: flex;
+    margin: 1%;
+}
+
+#creation label {
+/*    display: flex;
+    justify-content: space-between;*/
+    display: block;
+    float: left;
+    width: 10em;
+}
+
+#creation input, #creation textarea {
+    width: 20em;
+}
+
+#creation select, #creation input, #creation textarea {
+    display: block;
+    float: left;
+}
+
+#creation #adresse {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* mise en forme de la page conditions de vente */
+
+#conditions .list:before {
+    content: "\0000a0\002022";
+}
+
+/* mise en forme de la page delivery */
+
+#delivery table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#delivery table tbody tr {
+    height: 3rem;
+}
+
+#delivery table tr, #delivery table td, #delivery table th {
+    border: solid #000 1px;
+}
+
+#delivery #exemple {
+    width: 20%;
+}
+
+#delivery #planning th {
+    width: 20%;
+}
+
+#delivery table th, #delivery table td {
+    /*height: 3rem;*/
+}
+
+#delivery table td.retrait {
+    background-color: #afbd36;
+    z-index: 2;
+}
+
+#delivery table td.livraison {
+    background-color: #ee9d20;
+    z-index: 2;
+}
+
+
+
+}

@@ -1,0 +1,128 @@
+<?php if ($langue == 'fr'): ?>
+<h1>Gustoki, la fraîcheur du marché, le confort d'être livré!</h1>
+
+<section class="slider">
+	<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="img/slider/Gustoki_Modedemploi2.png" />
+    </li>
+    <li>
+      <img src="img/slider/eusko.png" />
+    </li>
+    <li>
+      <img src="img/slider/philosophie.png" />
+    </li>
+  </ul>
+</div>
+</section>
+
+<section id="prez">
+	<h2>La philosophie Gustoki</h2>
+	<div>
+	<p>La connaissance des paysans avec lesquels je travaille et les circuits courts sont les piliers de Gustoki. Chaque semaine, je me rends chez mes fournisseurs qui pratiquent tous une agriculture paysanne respectueuse de la terre et du vivant. Cela donne un sens à ma démarche qui se veut humaine, écologique et éco-responsable.</p>
+	<p>Le zéro déchet est le challenge que je souhaite relever avec et grâce à vous.</p>
+	</div>
+</section>
+
+<section id="news">
+	<h2>Les Incontournables</h2>
+	<div>
+		<article>
+			<h3>Produit</h3>
+			<h4><?= $productPromotion['Title']?></h4>
+			<img src="img/produit/<?= $productPromotion['Photo_Name']?>" alt="<?= $productPromotion['Photo_Description']?>">
+			<?php $url = $productPromotion['Category']; ?>
+			<?php $url = str_replace(" ", "-", $url); ?>
+			<button><a href="<?= $url ?>#<?= $productPromotion['Product_Id'] ?>">Acheter</a></button>
+		</article>
+
+		<!-- <article>
+			<h3>Recette</h3>
+			<h4>Carottes caramélisées</h4>
+			<img src="img/recette/recette.jpg">
+			<button>A table</button>
+		</article> -->
+
+		<article>
+			<h3>Producteurs</h3>
+			<h4><?= $producerPromotion['Producer_Name']?></h4>
+			<img src="img/producteur/<?= $producerPromotion['Photo_Name']?>" alt="<?= $producerPromotion['Photo_Description']?>">
+			<button><a href="producteurs.php?lang=fr&prodid=<?= $producerPromotion['Producer_Id'] ?>">Visiter</a></button>
+		</article>
+
+		<article>
+			<h3>Livraison</h3>
+			<h4>chez vous, chez nous</h4>
+			<img src="img/livraison/livraison.png">
+			<button><a href="livraison.php?lang=fr">Voir</a></button>
+		</article>
+	</div>
+</section>
+
+
+
+<?php else: ?>
+<h1>Gustoki, merkatuaren freskotasuna, entregatzeko erosotasuna!</h1>
+
+<section class="slider">
+	<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="img/slider/slider1eus.png" />
+    </li>
+    <li>
+      <img src="img/slider/eusko.png" />
+    </li>
+    <li>
+      <img src="img/slider/philosophie.png" />
+    </li>
+  </ul>
+</div>
+</section>
+
+<section id="prez">
+	<h2>Gustoki filosofia</h2>
+	<div>
+	<p>Gustokiren ardatz nagusiak dira lan egiten duten nekazarien ezagutza eta zirkuitu laburrak. Astero, nekazari nekazaritza lurra eta bizia errespetatzen duten nekazaritzako nekazaritza lantzen duten hornitzaileetara joaten naiz. Horrek zentzua ematen dit gizakia, ekologikoa eta eko-arduraduna den nire planteamenduari.
+	Zero hondakinak topatu nahi dudan erronka da, eta eskerrik asko zuri.</p>
+	</div>
+</section>
+
+<section id="news">
+	<h2>Oraintxe bertan</h2>
+	<div>
+		<article>
+			<h3>Produktua</h3>
+			<h4><?= $productPromotion['Izenburua']?></h4>
+			<img src="img/produit/<?= $productPromotion['Photo_Name']?>" alt="<?= $productPromotion['Irudi_Deskribapen']?>">
+			<?php $url = $productPromotion['Kategoria']; ?>
+			<?php $url = str_replace(" ", "-", $url); ?>
+			<button><a href="<?= $url ?>#<?= $productPromotion['Product_Id'] ?>">Erosi</a></button>
+		</article>
+
+		<!-- <article>
+			<h3>Errezeta</h3>
+			<h4>karamelatutako azenarioak</h4>
+			<img src="img/recette/recette.jpg">
+			<button>Mahaian</button>
+		</article> -->
+
+		<article>
+			<h3>Ekoizleak</h3>
+			<h4><?= $producerPromotion['Producer_Name']?></h4>
+			<img src="img/producteur/<?= $producerPromotion['Photo_Name']?>" alt="<?= $producerPromotion['Irudi_Deskribapen']?>">
+			<button><a href="producteurs.php?lang=eus&prodid=<?= $producerPromotion['Producer_Id'] ?>">Bisita</a></button>
+		</article>
+
+		<article>
+			<h3>Banatze</h3>
+			<h4>zure lekuan, gure lekuan</h4>
+			<img src="img/livraison/livraison.png">
+			<button><a href="livraison.php?lang=eus">Ikus</a></button>
+		</article>
+	</div>
+
+</section>
+
+<?php endif; ?>

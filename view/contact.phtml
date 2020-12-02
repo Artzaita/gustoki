@@ -1,0 +1,128 @@
+<?php if ($langue == 'fr'): ?>
+	<h1>Contactez-nous</h1>
+
+	<div id="message">
+	<form id="contact" method="POST" action="contact.php?lang=fr">
+		<fieldset>
+			<legend>
+				<h2>Laissez-nous un message</h2>
+			</legend>
+
+			<ul>
+				<li>
+					<label for="FirstName">Prénom :</label>
+					<input type="text" name="FirstName">
+				</li>
+
+				<li>
+					<label for="LastName">Nom :</label>
+					<input type="text" name="LastName">
+				</li>
+
+				<li>
+					<label for="Mail">Courriel :</label>
+					<input type="email" name="Mail">
+				</li>
+
+				<li>
+					<label for="Motif">Motif :</label>
+					<select name="Motif">
+						<option>Demande d'information</option>
+						<option>Demande de point de livraison</option>
+						<option>Réclamation</option>
+					</select>
+				</li>
+
+				<li>
+					<label for="Message">Message :</label>
+					<textarea name="Message"></textarea>
+				</li>
+			</ul>
+
+			<button>Envoyer</button>
+
+		</fieldset>
+
+
+	</form>
+
+	<section id="locate">
+		<fieldset>
+			<legend>
+				<h2>Trouvez-nous</h2>
+			</legend>
+			<div id="adress">
+			<ul>
+				<li>Gustoki</li>
+				<li>Maison Bide Artea</li>
+				<li>RD 810</li>
+				<li>64122 Urrugne</li>
+			</ul>
+
+	
+
+<?php else: ?>
+	<h1>Gurekin harremanetan</h1>
+	<div id="message">
+	<form id="contact" method="POST" action="contact.php?lang=eus">
+		<fieldset>
+			<legend>
+				<h2>Utziguzu mezu bat</h2>
+			</legend>
+
+			<ul>
+				<li>
+					<label for="FirstName">Izena :</label>
+					<input type="text" name="FirstName">
+				</li>
+
+				<li>
+					<label for="LastName">Abizena :</label>
+					<input type="text" name="LastName">
+				</li>
+
+				<li>
+					<label for="Mail">Email-a :</label>
+					<input type="email" name="Mail">
+				</li>
+
+				<li>
+					<label for="Motif">Arrazoia :</label>
+					<select name="Motif">
+						<option>Informazio eskaera</option>
+						<option>Banatze puntuko eskaera</option>
+						<option>Kexa</option>
+					</select>
+				</li>
+
+				<li>
+					<label for="Message">Mezua :</label>
+					<textarea name="Message"></textarea>
+				</li>
+			</ul>
+
+			<button>Bidali</button>
+
+		</fieldset>
+	</form>
+
+	<section id="locate">
+		<fieldset>
+			<legend>
+				<h2>Gauden</h2>
+			</legend>
+			<div id="adress">
+			<ul>
+				<li>Gustoki</li>
+				<li>Bide Artea Etxea</li>
+				<li>RD 810</li>
+				<li>64122 Urruña</li>
+			</ul>
+
+<?php endif; ?>
+
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4705.474960511869!2d-1.7020711146948821!3d43.361437545843906!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4318a668a29cd18!2sgustoki!5e0!3m2!1sfr!2sfr!4v1582669624570!5m2!1sfr!2sfr" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></iframe>
+			</div>
+		</fieldset>
+	</section>
+</div>

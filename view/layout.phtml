@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<link rel="icon" type="image/jpg" href="./img/favicon.png">
+
+	<link href="https://use.fontawesome.com/452826394c.css" media="all" rel="stylesheet">
+
+	<link rel="stylesheet" href="./css/flexslider.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="./js/jquery.flexslider.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<header>
+		<?php include ('header.php');?>
+	</header>
+	<div id="main">
+	<main>
+		<?php if(isset($info)): ?>
+		<p id="info"><?= $info ?></p>
+		<?php endif; ?>
+		<?php include $template.'.phtml';?>
+	</main>
+	<footer>
+		<?php include ('footer.php');?>
+	</footer>
+	<?php if ($langue == 'fr'): ?>
+	<p id="real">création par <a href="http://donibanekopi.fr/index.html">Donibanekopi</a> et réalisation par <a href="https://www.larrun-prod.com">Larrun-Prod</a></p>
+	<?php else: ?>
+	<p id="real">sortzea <a href="http://donibanekopi.fr/index.html">Donibanekopi</a> eta errealizazioa <a href="https://www.larrun-prod.com">Larrun-Prod</a></p>
+	<?php endif; ?>
+	</div>
+
+	<script src="./js/main.js"></script>
+</body>
+</html>

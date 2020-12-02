@@ -1,0 +1,45 @@
+<div id="customer">
+<h1>Listing Clients</h1>
+
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>Numéro Client</th>
+			<th>Civilité</th>
+			<th>Prénom</th>
+			<th>Nom</th>
+			<th>Mail</th>
+			<th>Téléphone</th>
+			<th>Date de Naissance</th>
+			<th>Adresse</th>
+			<th>Code Postal</th>
+			<th>Village</th>
+			<th>Date de Création</th>
+			<th>Dernière Commande</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($customers as $customer): ?>
+			<tr>
+				<td><?= $customer['Cust_Number']?></td>
+				<td><?= $customer['Cust_Civility']?></td>
+				<td><?= $customer['Cust_FirstName']?></td>
+				<td><?= $customer['Cust_Name']?></td>
+				<td><?= $customer['Cust_Mail']?></td>
+				<td><?= $customer['Cust_Phone']?></td>
+				<td><?= $customer['Cust_DoB']?></td>
+				<td><?= $customer['Cust_Address']?></td>
+				<td><?= $customer['Cust_CP']?></td>
+				<td><?= $customer['Cust_City']?></td>
+				<td><?= $customer['Cust_Creation']?></td>
+				<td><?= $customer['Cust_Last_Order']?></td>
+				<td><form method="POST" action="client.php">
+					<input type="hidden" name="Id" value="$customer['Cust_Id']?>"><button type="submit" name="delete"><i class="fa fa-2x fa-trash"></i></button></form></td>
+			</tr>
+		<?php endforeach ?>
+	</tbody>
+</table>
+
+</div>

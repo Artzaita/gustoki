@@ -1,0 +1,179 @@
+<div id="producer">
+<h1>Enregistrement d'un producteur</h1>
+
+<form id="new" method="POST" action="producteur.php" enctype="multipart/form-data">
+	<fieldset>
+		<table>
+			<thead></thead>
+			<tbody>
+				<tr>
+					<td>
+						<input type="text" name="title" placeholder="Nom du producteur">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="description" placeholder="Description" rows="20"></textarea>
+					</td>
+					<td>
+						<textarea name="deskribapen" placeholder="Deskribapen" rows="20"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="village" placeholder="Village"></textarea>
+					</td>
+					<td>
+						<textarea name="herria" placeholder="Herria"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="installation">Année d'installation :</label>
+					</td>
+					<td>
+						<input type="text" name="installation" placeholder="Année">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Catégorie :
+					</td>
+					<td>
+						<select name="categoryId">
+							<?php foreach($categories as $category): ?>
+							<option value="<?= $category['Id']?>"><?= $category['Category']?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label Idoki :
+					</td>
+					<td>
+						<select name="Idoki">
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AOP :
+					</td>
+					<td>
+						<select name="AOP">
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label AB :
+					</td>
+					<td>
+						<select name="AB">
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Label En Conversion :
+					</td>
+					<td>
+						<select name="Conversion">
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Producteur en avant :
+					</td>
+					<td>
+						<select name="Promotion">
+							<option value="non">non</option>
+							<option value="oui">oui</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<ul>
+		<p>Enregistrement d'une photo (Max 4Mo) :</p>
+		<input type="hidden" name="MAX_FILE_SIZE" value="4194304">
+		<li><input type="file" name="photo" accept=".jpg, .jpeg, .png"></li>
+		<li>
+			<input type="text" name="ImageDescription" placeholder="Description de la photo">
+			<input type="text" name="IrudiDeskribapen" placeholder="Irudiaren deskribapena"></li>
+		</ul>
+
+		<button type="submit">Créer le producteur</button>
+
+
+	</fieldset>
+
+</form>
+
+<h1>Liste des Producteurs</h1>
+
+<table id="list">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th>Deskribapen</th>
+			<th>Village</th>
+			<th>Herria</th>
+			<th>Installation</th>
+			<th>Idoki</th>
+			<th>AOP</th>
+			<th>Bio</th>
+			<th>Conversion</th>
+			<th>Promotion</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($producers as $producer): ?>
+			<tr>
+				<td><?= $producer['Producer_Name']?></td>
+				<?php $cut = wordwrap($producer['Producer_Description'], 50, "[...]$	", false); ?>
+				<?php $array = explode("$", $cut); ?>
+				<?php $extract = $array[0]; ?>
+				<td><?= nl2br(htmlspecialchars($extract))?></td>
+				<?php $cut = wordwrap($producer['Producer_Deskribapen'], 50, "[...]$	", false); ?>
+				<?php $array = explode("$", $cut); ?>
+				<?php $extract = $array[0]; ?>
+				<td><?= nl2br(htmlspecialchars($extract))?></td>
+				<td><?= $producer['Village']?></td>
+				<td><?= $producer['Herria']?></td>
+				<td><?= $producer['Installation']?></td>
+				<td><?= $producer['Producer_Label_Idoki']?></td>
+				<td><?= $producer['Producer_Label_AOP']?></td>
+				<td><?= $producer['Producer_Label_AB']?></td>
+				<td><?= $producer['Producer_Label_Conversion']?></td>
+				<td><?= $producer['Producer_Promotion']?></td>
+				<td>
+					<form class="list" method="POST" action="modify.php?type=producer&id=<?= $producer['Producer_Id']?>">
+					<input type="hidden" name="id_Producer" value="<?= $producer['Producer_Id']?>">
+					<button type="submit" name="modify"><i class="fa fa-2x fa-pencil"></i></button>
+					<button type="submit" name="delete"><i class="fa fa-2x fa-trash"></i></button>
+					</form>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+
+
+
+
+
+</div>

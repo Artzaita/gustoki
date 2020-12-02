@@ -1,0 +1,74 @@
+<?php if ($langue == 'fr'): ?>
+	<nav id="bottomnav">
+		<ul>
+			<li>
+				<ul>
+					<li><a href="accueil" >Accueil</a></li>
+					<li><a href="le-marché" >Le Marché</a></li>
+					<li><a href="le-blog" >Le Blog</a></li>
+					<li><a href="contact" >Contact</a></li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li><a href="producteurs.php?lang=fr">Nos Producteurs</a></li>
+					<li><a href="livraison.php?lang=fr">La livraison</a></li>
+					<li><a href="conditions.php?lang=fr">CGV</a></li>
+					<li><a href="mentions.php?lang=fr">Mentions Légales</a></li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li><a href="compte.php?lang=fr">Mon compte</a></li>
+					<?php if (isset($_SESSION['firstName'])): ?>
+					<li>
+						<button><a href="deconnexion.php?lang=fr">Déconnexion</a></button>
+					</li>
+					<?php endif; ?>
+					<li>
+						<ul>Retrouvez-nous
+
+
+
+<?php else: ?>
+	<nav id="bottomnav">
+		<ul>
+			<li>
+				<ul>
+					<li><a href="harrera" >Harrera</a></li>
+					<li><a href="merkatua" >Merkatua</a></li>
+					<li><a href="bloga" >Bloga</a></li>
+					<li><a href="kontaktua" >Kontaktua</a></li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li><a href="producteurs.php?lang=eus">Gure Ekoizleak</a></li>
+					<li><a href="livraison.php?lang=eus">Banatze</a></li>
+					<li><a href="conditions.php?lang=eus">Salmenta Baldintzak</a></li>
+					<li><a href="mentions.php?lang=eus">Legezko Oharrak</a></li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li><a href="compte.php?lang=eus">Ene kontua</a></li>
+					<?php if (isset($_SESSION['firstName'])): ?>
+					<li>
+						<button><a href="deconnexion.php?lang=eus">Deskonektatzeko</a></button>
+					</li>
+					<?php endif; ?>
+					<li>
+						<ul>Aurkitu gaitzazu
+	
+
+
+
+<?php endif; ?>
+							<li>Mail: <a href="mailto:gustoki@gustoki.com">gustoki@gustoki.com</a></li>
+							<li><a href="https://www.facebook.com/gustokiEpicerieEH/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
